@@ -26,7 +26,7 @@ def extract_audio(video_file, audio_file):
 def spleet_audio(audio_file, duration):
     separator = Separator("spleeter:2stems")
     spleet_path = os.path.join(os.path.dirname(audio_file), SPLEET_OUTPUT)
-    separator.separate_to_file(audio_file, spleet_path, duration=float(duration))
+    separator.separate_to_file(audio_file, spleet_path, duration=float(duration), filename_format="{instrument}.{codec}")
 
 
 def subtitle_to_audio_track(video_file):
