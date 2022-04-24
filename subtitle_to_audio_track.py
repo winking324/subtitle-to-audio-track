@@ -59,11 +59,11 @@ def subtitle_to_audio_track(video_file):
 
     print("extract audio ...")
     audio_file = os.path.join(base_file, "origin.mp3")
-    total_duration = helper.media.audio_duration(audio_file)
     if os.path.exists(audio_file):
         print("audio file already extracted, ignore")
     else:
         extract_audio(video_file, audio_file)
+    total_duration = helper.media.audio_duration(audio_file)
 
     print("spleet audio ...")
     spleet_path = os.path.join(video_path, os.path.splitext(video_filename)[0], SPLEET_OUTPUT)
