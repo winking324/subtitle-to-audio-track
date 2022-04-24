@@ -2,6 +2,13 @@
 __author__ = "winking324@gmail.com"
 
 
+from charset_normalizer import from_path
+
+
+def file_encoding(filename):
+    return from_path(filename).best().encoding
+
+
 def filter_dialogue(dialogue):
     pos = dialogue.find('\\N')
     dialogue = dialogue[:pos] if pos > 0 else dialogue
@@ -20,10 +27,10 @@ def filter_dialogue(dialogue):
 
 def parse_subtitle(subtitle_file):
     dialogues = []
-    with open(subtitle_file, "r", encoding="utf-16-le") as subtitle_file:
+    with open(subtitle_file, "r", encoding=file_encoding(subtitle_file)) as f:
         dialogue_format = []
         start_parse = False
-        for line in subtitle_file:
+        for line in f:
             if not start_parse:
                 if not line.startswith("[Events]"):
                     continue
