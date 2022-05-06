@@ -32,6 +32,7 @@
 7. 复杂格式的 `ass` 字幕适配；
 8. 自动增加标点符号，以获取更好的 TTS 效果；
 9. 如果语音时长超过字幕时长，调整语速重新生成语音；
+10. 使用微软 [TTS](https://azure.microsoft.com/en-us/services/cognitive-services/text-to-speech/) 替换百度；
 
 # 遗留的问题
 
